@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const ttclid = params.get("ttclid") || "";
+
+      // Only allow this landing page to load when ttclid starts with E_C_P.
+      // Missing or non-matching ttclid values are redirected to Etsy.
+      if (!ttclid.startsWith("E_C_P")) {
+        window.location.replace("https://www.etsy.com/");
+      }
+    })();
+  </script>
+
   <meta charset="UTF-8" />
 
   <meta
